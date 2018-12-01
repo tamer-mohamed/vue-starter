@@ -33,7 +33,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "pretty-quick --staged && concurrently \"npm run lint\" \"npm run test:coverage\""
+      "pre-commit": "pretty-quick --staged && concurrently \"lerna run lint\" \"lerna run test:coverage\""
     }
   }
 }
