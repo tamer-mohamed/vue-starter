@@ -7,10 +7,10 @@ const baseConfig = require('./webpack.base.config');
 const devServerConfig = merge(baseConfig, {
   target: 'node',
   entry: {
-    'dev-server': './src/server/dev/server',
+    'dev-server': path.join(process.cwd(), 'src/server/dev/server'),
   },
   output: {
-    path: path.join(__dirname, '..', 'dist', 'server'),
+    path: path.join(process.cwd(), 'dist', 'server'),
     filename: 'dev-server.js',
     libraryTarget: 'commonjs',
   },

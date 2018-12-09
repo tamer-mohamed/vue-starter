@@ -13,14 +13,14 @@ const baseConfig = {
   devtool: isProd ? false : '#eval-source-map',
   resolve: {
     extensions: ['*', '.ts', '.js', '.vue', '.json', '.node', '.scss'],
-    modules: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'node_modules')],
+    modules: ['node_modules', path.join(process.cwd(), 'src')],
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
         loader: 'ts-loader',
-        include: [path.join(__dirname, '..', 'src')],
+        include: [path.join(process.cwd(), 'src')],
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
@@ -112,7 +112,7 @@ const baseConfig = {
   plugins: [
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({ PRODUCTION: isProd, DEVELOPMENT: !isProd, TEST: false }),
-    new ForkTsCheckerWebpackPlugin({ tslint: true, vue: true, tslintAutoFix: true }),
+    new ForkTsCheckerWebpackPlugin({ tslint: true, vue: true }),
   ],
 };
 

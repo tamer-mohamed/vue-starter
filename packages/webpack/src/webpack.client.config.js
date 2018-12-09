@@ -8,10 +8,10 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 const clientConfig = merge(baseConfig, {
   entry: {
-    app: './src/client/index',
+    app: path.join(process.cwd(), 'src/client/index'),
   },
   output: {
-    path: path.join(__dirname, '..', 'dist', 'client'),
+    path: path.join(process.cwd(), 'dist', 'client'),
     filename: '[name].[chunkHash].js',
     publicPath: '/client/',
     chunkFilename: '[name].[id].[chunkhash].js',
@@ -41,7 +41,7 @@ const clientConfig = merge(baseConfig, {
 
 if (process.env.NODE_ENV === 'production') {
   clientConfig.plugins = (clientConfig.plugins || []).concat([
-    new ServiceWorkerWebpackPlugin({ entry: path.join(__dirname, '..', 'src/client/sw.ts') }),
+    new ServiceWorkerWebpackPlugin({ entry: path.join(process.cwd(), 'src/client/sw.ts') }),
     new CompressionPlugin({ algorithm: 'gzip', test: /\.js$|\.css$|\.html$/, threshold: 0, minRatio: 1 }),
   ]);
   clientConfig.performance.hints = 'error';

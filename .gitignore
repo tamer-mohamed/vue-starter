@@ -1,7 +1,4 @@
 .DS_Store
-.idea
-node_modules
-dist
 npm-debug.log
 coverage
 tools/**/*.js
@@ -10,3 +7,14 @@ cypress/videos
 storybook-static
 logs
 .cache
+
+
+
+# package modules and dist files
+node_modules
+packages/**/node_modules
+packages/**/dist
+
+# idea
+.idea
+.vscode/

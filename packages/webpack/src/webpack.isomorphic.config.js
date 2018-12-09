@@ -7,9 +7,9 @@ const baseConfig = require('./webpack.base.config');
 
 const isomorphicConfig = merge(baseConfig, {
   target: 'node',
-  entry: { isomorphic: './src/server/isomorphic' },
+  entry: { isomorphic: path.join(process.cwd(), 'src/server/isomorphic') },
   output: {
-    path: path.join(__dirname, '..', 'dist', 'server'),
+    path: path.join(process.cwd(), 'dist', 'server'),
     filename: 'isomorphic.js',
     libraryTarget: 'commonjs2',
   },

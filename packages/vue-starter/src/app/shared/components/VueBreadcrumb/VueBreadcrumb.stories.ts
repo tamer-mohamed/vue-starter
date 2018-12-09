@@ -8,7 +8,7 @@ story.addDecorator(require('storybook-vue-router').default());
 
 story.add(
   'Default',
-  withInfo({})(() => ({
+  (withInfo as any)({})(() => ({
     components: { VueBreadcrumb },
     template: `<vue-breadcrumb :items="[{ label: 'Home', href: '/' }, { label: 'Components', href: '/components' }, { label: 'Breadcrumb', href: '/components/breadcrumb' }]" />`,
   })),

@@ -8,9 +8,9 @@ const baseConfig = require('./webpack.base.config');
 
 let serverConfig = merge(baseConfig, {
   target: 'node',
-  entry: ['./src/server/index'],
+  entry: [path.join(process.cwd(), 'src/server/index')],
   output: {
-    path: path.join(__dirname, '..', 'dist', 'server'),
+    path: path.join(process.cwd(), 'dist', 'server'),
     filename: 'server.js',
     libraryTarget: 'commonjs',
   },
